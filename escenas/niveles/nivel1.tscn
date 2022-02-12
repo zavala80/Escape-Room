@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://componentes/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://componentes/fondos/espacio/fondo_espacio.tscn" type="PackedScene" id=2]
+
+[node name="Node" type="Node"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_right = 247.0
+margin_bottom = 71.0
+text = "Nievel 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 534, 1859 )
+
+[node name="fondo" parent="." instance=ExtResource( 2 )]
