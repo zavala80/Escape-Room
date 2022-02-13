@@ -3,7 +3,7 @@ extends KinematicBody2D
 var motion = Vector2(0, 0) # Motion inicial del personaje
 const VELOCIDAD = 250 # Velocidad del personaje
 var puede_caminar = true
-var tamanio_pantalla = get_viewport_rect().size
+var bala_personaje = preload("res://componentes/player/bala_personaje/bala_personaje.tscn")
 
 func _ready():
 	set_process(true)
@@ -25,6 +25,15 @@ func administrar_inputs():
 		self.position.x = 0
 	elif self.position.x > 1024:
 		self.position.x = 1024
+	
+	if Input.is_action_just_pressed("ui_z"):
+		var root = get_tree().get_root().get_node("Nivel/balas")
+		var bala = bala_personaje.instance()
+		bala.global_position.x = $boca.global_position.x
+		bala.global_position.y = $boca.global_position.y
+		print(bala.position)
+		root.add_child(bala)
+		print("disparo")
 	
 	# Reinicio del nivel
 	if Input.is_action_just_released("ui_restart"):
