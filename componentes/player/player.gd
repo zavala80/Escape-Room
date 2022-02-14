@@ -6,10 +6,12 @@ var puede_caminar = true
 var bala_personaje = preload("res://componentes/player/bala_personaje/bala_personaje.tscn")
 var particulas_muerte = preload("res://componentes/muertes/particula_personaje_muerte.tscn")
 var esta_vivo = true
-var vidas = 1
+var inmortal = false
+var vidas = 3
 var termino_el_juego = false
 
 func _ready():
+	$AnimationPlayer.connect("animation_finished", self, "_termino_animacion")
 	set_process(true)
 	
 func _process(delta):
@@ -44,7 +46,22 @@ func administrar_inputs():
 	# Reinicio del nivel
 	if Input.is_action_just_released("ui_restart"):
 		reiniciar_nivel()
-	
+
+func lastimar():
+	if (!inmortal):
+		inmortal = true
+		vidas = vidas - 1
+		if vidas != 0:
+			realizar_animacion("lastimado")
+
+func realizar_animacion(animacion):
+	if animacion == "lastimado":
+		$AnimationPlayer.play("lastimado")
+	pass
+
+func _termino_animacion(animacion):
+	if animacion == "lastimado":
+		inmortal = false
 
 func morir():
 	if (!termino_el_juego):

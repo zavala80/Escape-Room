@@ -7,4 +7,4 @@ func _body_entered(body):
 	if body.name == "Player":
 		var player = get_tree().root.get_node("Nivel/Player")
 		print(player)
-		player.vidas = player.vidas - 1
+		player.lastimar()
