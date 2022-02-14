@@ -5,13 +5,14 @@ var provocado = false
 var bala_enemigo = preload("res://componentes/enemigos/bala_enemigo.tscn")
 var velocidad_bala = 500
 onready var timer = get_node("Timer")
+var tiempoDeEnfriamientoDeDisparo = 0.5  
 var angulo = 90
 
 func _ready():
 	$area_provocadora.connect("body_entered", self, "_body_entered")
 	$area_provocadora.connect("body_exited", self, "_body_exited")
 	timer.connect("timeout", self, "_disparar")
-	timer.set_wait_time(2)
+	timer.set_wait_time(tiempoDeEnfriamientoDeDisparo)
 	set_process(true)
 
 func _process(delta):
@@ -20,7 +21,6 @@ func _process(delta):
 		var player = get_tree().get_root().get_node("Nivel/Player")
 		self.look_at(Vector2(player.global_position.x, player.global_position.y))
 		self.rotation = deg2rad(self.rotation_degrees + angulo)
-		print("disparo del enemigo")
 	
 
 func _body_entered(body):
