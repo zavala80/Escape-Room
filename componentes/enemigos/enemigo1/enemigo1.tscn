@@ -4,7 +4,7 @@
 [ext_resource path="res://componentes/enemigos/enemigo1/enemigo1.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 232.002
+radius = 438.01
 
 [node name="enemigo1" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -12,7 +12,14 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
+[node name="boca" type="Position2D" parent="."]
+position = Vector2( 0, -21 )
+
 [node name="area_provocadora" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_provocadora"]
 shape = SubResource( 1 )
+
+[node name="balas" type="Node" parent="."]
+
+[node name="Timer" type="Timer" parent="."]

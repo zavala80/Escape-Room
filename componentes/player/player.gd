@@ -29,11 +29,10 @@ func administrar_inputs():
 	if Input.is_action_just_pressed("ui_z"):
 		var root = get_tree().get_root().get_node("Nivel/balas")
 		var bala = bala_personaje.instance()
+		root.add_child(bala)
 		bala.global_position.x = $boca.global_position.x
 		bala.global_position.y = $boca.global_position.y
-		print(bala.position)
-		root.add_child(bala)
-		print("disparo")
+		print("disparo del player")
 	
 	# Reinicio del nivel
 	if Input.is_action_just_released("ui_restart"):
