@@ -14,6 +14,10 @@ config/name="escape-room"
 run/main_scene="res://escenas/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://scripts/Global.gd"
+
 [display]
 
 window/size/height=800

@@ -12,6 +12,7 @@ var termino_el_juego = false
 var GRAVEDAD = 200
 
 func _ready():
+	Global.player = self
 	$AnimationPlayer.connect("animation_finished", self, "_termino_animacion")
 	set_process(true)
 	
@@ -44,10 +45,10 @@ func administrar_inputs():
 	
 	# Disparar
 	if Input.is_action_just_pressed("ui_z"):
-		var root = get_tree().get_root().get_node("Nivel/balas")
+		var balas_container = Global.balas
 		var bala = bala_personaje.instance()
 		bala.set_name("bala_personaje")
-		root.add_child(bala)
+		balas_container.add_child(bala)
 		bala.global_position.x = $boca.global_position.x
 		bala.global_position.y = $boca.global_position.y
 	

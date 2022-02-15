@@ -18,7 +18,7 @@ func _process(delta):
 	move_and_slide(motion, Vector2(0, -1))
 
 func _body_entered(body):
-	if body.name != "Player":
+	if body.name != Global.player.name:
 		if body.is_in_group("enemigo"):
 			print("Es un enemigo")
 	pass

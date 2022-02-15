@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://componentes/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://componentes/fondos/espacio/fondo_espacio.tscn" type="PackedScene" id=2]
-[ext_resource path="res://componentes/enemigos/enemigo1/enemigo1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://componentes/enemigos/enemigo4/enemigo4.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/balas.gd" type="Script" id=4]
 
 [node name="Nivel" type="Node"]
 
@@ -20,8 +21,9 @@ position = Vector2( 512, 3000 )
 [node name="fondo" parent="." instance=ExtResource( 2 )]
 
 [node name="balas" type="Node2D" parent="."]
+script = ExtResource( 4 )
 
 [node name="enemigos" type="Node2D" parent="."]
 
 [node name="enemigo1" parent="enemigos" instance=ExtResource( 3 )]
-position = Vector2( 514, 1834 )
+position = Vector2( 144, 1464 )

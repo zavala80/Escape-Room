@@ -11,11 +11,8 @@ func _ready():
 	$Area2D.connect("body_entered", self, "_body_entered")
 
 func _body_entered(body):
-	if body.name == "Player":
-		var player = get_tree().root.get_node("Nivel/Player")
-		player.lastimar()
+	if body.name == Global.player.name:
+		Global.player.lastimar()
 
 func _autodestruir_bala():
 	self.queue_free()
-
-
