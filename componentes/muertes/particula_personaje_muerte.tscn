@@ -30,7 +30,6 @@ color_ramp = SubResource( 2 )
 
 [node name="Particles2D" type="Particles2D"]
 amount = 16
-lifetime = 2.0
-speed_scale = 10.0
+speed_scale = 5.0
 process_material = SubResource( 5 )
 texture = ExtResource( 1 )

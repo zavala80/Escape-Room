@@ -24,4 +24,4 @@ position = Vector2( 512, 3000 )
 [node name="enemigos" type="Node2D" parent="."]
 
 [node name="enemigo1" parent="enemigos" instance=ExtResource( 3 )]
-position = Vector2( 325, 2696 )
+position = Vector2( 514, 1834 )
