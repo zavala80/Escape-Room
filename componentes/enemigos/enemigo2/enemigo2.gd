@@ -7,8 +7,9 @@ var velocidad_bala = 400
 onready var timer = get_node("Timer")
 var tiempoDeEnfriamientoDeDisparo = 1.0
 var angulo = 90
-var anguloDisparo = 0
+var anguloDisparo = 90
 var esta_vivo = true
+onready var path = get_parent().get_parent()
 
 func _ready():
 	$area_provocadora.connect("body_entered", self, "_dentro_del_area")
@@ -20,20 +21,9 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	# Calculando el ángulo de disparo
-	if (Global.player.global_position.x < self.global_position.x):
-		anguloDisparo = 70
-	elif (Global.player.global_position.x > self.global_position.x):
-		anguloDisparo = 110
-	else:
-		anguloDisparo = 90
-	
+	path.set_offset(path.get_offset() + 100 * delta)
 	if (provocado && esta_vivo):
-		# Observamos al player
-		var player = Global.player
-		self.look_at(Vector2(player.global_position.x, player.global_position.y))
-		self.rotation = deg2rad(self.rotation_degrees + angulo)
-	
+		pass
 
 func _dentro_del_area(body):
 	if body.name == Global.player.name:
@@ -57,8 +47,7 @@ func _disparar():
 	var bala = bala_enemigo.instance()
 	balas_container.add_child(bala)
 	bala.position = $boca.global_position
-	bala.apply_impulse(Vector2(), Vector2(velocidad_bala, 0).rotated(deg2rad(self.rotation_degrees + -anguloDisparo)))
-
+	bala.apply_impulse(Vector2(), Vector2(velocidad_bala, 0).rotated(deg2rad(90)))
 
 func morir():
 	$Sprite.visible = false

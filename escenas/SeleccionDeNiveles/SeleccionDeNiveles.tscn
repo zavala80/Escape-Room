@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://escenas/SeleccionDeNiveles/SeleccionDeNiveles.gd" type="Script" id=1]
+[ext_resource path="res://escenas/SeleccionDeNiveles/BotonNivel/BotonNivel.tscn" type="PackedScene" id=2]
+
+[node name="SeleccionDeNiveles" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="BotonNivel" parent="." instance=ExtResource( 2 )]
+int_nivel = 1
+
+[node name="BotonNivel2" parent="." instance=ExtResource( 2 )]
+margin_left = 215.0
+margin_top = 55.0
+margin_right = 323.0
+margin_bottom = 145.0
+text = "2"
+int_nivel = 2
+
+[node name="BotonNivel3" parent="." instance=ExtResource( 2 )]
+margin_left = 473.0
+margin_top = 56.0
+margin_right = 581.0
+margin_bottom = 146.0
+text = "Jefe final"
+int_nivel = 3

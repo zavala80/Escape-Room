@@ -23,3 +23,24 @@ stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -83.5
+margin_top = -20.0
+margin_right = 83.5
+margin_bottom = 20.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer"]
+margin_top = 12.0
+margin_right = 167.0
+margin_bottom = 27.0
+text = "¡Vamos!"
+fit_content_height = true

@@ -5,7 +5,7 @@ var bala_enemigo = preload("res://componentes/enemigos/bala_enemigo.tscn")
 var particulas_explosion = preload("res://componentes/muertes/particula_personaje_muerte.tscn")
 var velocidad_bala = 400
 onready var timer = get_node("Timer")
-var tiempoDeEnfriamientoDeDisparo = 1.0
+var tiempoDeEnfriamientoDeDisparo = 1.5
 var angulo = 90
 var anguloDisparo = 90
 var esta_vivo = true
@@ -50,6 +50,10 @@ func _disparar():
 func morir():
 	$Sprite.visible = false
 	if (esta_vivo):
+		# Eliminamos las áreas
+		$enemigo_collider.queue_free()
+		$area_provocadora.queue_free()
+		
 		# Detenemos el timer inicial (el que hace que dispare balas)
 		timer.stop()
 		

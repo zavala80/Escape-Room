@@ -17,6 +17,9 @@ func _ready():
 	# Le decimos al script global quienes somos
 	Global.player = self
 	
+	# Posicionamos al jugador al centro al inicio de la partida
+	self.global_position.x = Global.viewport_size().x / 2
+	
 	# Obtenemos la UI de los corazones y su medida individual
 	corazones_ui = Global.UI.get_node("Corazones")
 	size_x_corazon = corazones_ui.rect_size.x
