@@ -1,5 +1,6 @@
 extends Node
 
+var UI
 var player
 var balas
 

@@ -7,13 +7,27 @@ var bala_personaje = preload("res://componentes/player/bala_personaje/bala_perso
 var particulas_muerte = preload("res://componentes/muertes/particula_personaje_muerte.tscn")
 var esta_vivo = true
 var inmortal = false
-var vidas = 3
+var vidas = 10
 var termino_el_juego = false
 var GRAVEDAD = 200
+var corazones_ui
+var size_x_corazon
 
 func _ready():
+	# Le decimos al script global quienes somos
 	Global.player = self
+	
+	# Obtenemos la UI de los corazones y su medida individual
+	corazones_ui = Global.UI.get_node("Corazones")
+	size_x_corazon = corazones_ui.rect_size.x
+	
+	# Actualizamos la UI
+	actualizar_ui()
+	
+	# Conectamos la señal de nuestro animation player
 	$AnimationPlayer.connect("animation_finished", self, "_termino_animacion")
+	
+	# Habilitamos la ejecución de código por fotograma
 	set_process(true)
 	
 func _process(delta):
@@ -26,6 +40,11 @@ func _process(delta):
 	else:
 		esta_vivo = false
 		morir()
+
+func actualizar_ui():
+	# Indicamos la cantidad de vidas iniciales que tenemos
+	if (Global.UI):
+		corazones_ui.rect_size.x = size_x_corazon * vidas
 
 func administrar_inputs():
 	# Movimiento horizontal y vertical
@@ -60,6 +79,7 @@ func lastimar():
 	if (!inmortal):
 		inmortal = true
 		vidas = vidas - 1
+		actualizar_ui()
 		if vidas != 0:
 			realizar_animacion("lastimado")
 
@@ -86,5 +106,3 @@ func morir():
 
 func reiniciar_nivel():
 	get_tree().reload_current_scene()
-
-
