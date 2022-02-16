@@ -47,7 +47,6 @@ func _disparar():
 	bala.position = $boca.global_position
 	bala.apply_impulse(Vector2(), Vector2(velocidad_bala, 0).rotated(deg2rad(90)))
 
-
 func morir():
 	$Sprite.visible = false
 	if (esta_vivo):
@@ -65,6 +64,8 @@ func morir():
 		explosion.set_one_shot(true)
 		timer_muerte.start()
 		$Sprite.visible = false
+		if !$fx_muerte.playing:
+			$fx_muerte.play()
 
 func eliminar_enemigo():
 	self.queue_free()

@@ -7,7 +7,7 @@ var bala_personaje = preload("res://componentes/player/bala_personaje/bala_perso
 var particulas_muerte = preload("res://componentes/muertes/particula_personaje_muerte.tscn")
 var esta_vivo = true
 var inmortal = false
-var vidas = 10
+var vidas = 5
 var termino_el_juego = false
 var GRAVEDAD = 200
 var corazones_ui
@@ -64,16 +64,20 @@ func administrar_inputs():
 	
 	# Disparar
 	if Input.is_action_just_pressed("ui_z"):
-		var balas_container = Global.balas
-		var bala = bala_personaje.instance()
-		bala.set_name("bala_personaje")
-		balas_container.add_child(bala)
-		bala.global_position.x = $boca.global_position.x
-		bala.global_position.y = $boca.global_position.y
+		disparar()
 	
 	# Reinicio del nivel
 	if Input.is_action_just_released("ui_restart"):
 		reiniciar_nivel()
+
+func disparar():
+	var balas_container = Global.balas
+	var bala = bala_personaje.instance()
+	bala.set_name("bala_personaje")
+	balas_container.add_child(bala)
+	bala.global_position.x = $boca.global_position.x
+	bala.global_position.y = $boca.global_position.y
+	$fx_bala.play()
 
 func lastimar():
 	if (!inmortal):
@@ -81,6 +85,7 @@ func lastimar():
 		vidas = vidas - 1
 		actualizar_ui()
 		if vidas != 0:
+			$fx_lastimado.play()
 			realizar_animacion("lastimado")
 
 func realizar_animacion(animacion):
@@ -103,6 +108,7 @@ func morir():
 		var muerte_particulas = particulas_muerte.instance()
 		self.add_child(muerte_particulas)
 		$Sprite.visible = false
+		$fx_muerte.play()
 
 func reiniciar_nivel():
 	get_tree().reload_current_scene()

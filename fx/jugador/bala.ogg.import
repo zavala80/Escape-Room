@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bala.ogg-3f8014c0a27b596ae505415ecba2c19b.oggstr"
+
+[deps]
+
+source_file="res://fx/jugador/bala.ogg"
+dest_files=[ "res://.import/bala.ogg-3f8014c0a27b596ae505415ecba2c19b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

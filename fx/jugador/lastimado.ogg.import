@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lastimado.ogg-f3029ea9fbeebc8b54a9cf2e8529a161.oggstr"
+
+[deps]
+
+source_file="res://fx/jugador/lastimado.ogg"
+dest_files=[ "res://.import/lastimado.ogg-f3029ea9fbeebc8b54a9cf2e8529a161.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

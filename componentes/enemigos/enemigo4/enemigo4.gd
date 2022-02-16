@@ -77,8 +77,8 @@ func morir():
 		explosion.set_one_shot(true)
 		timer_muerte.start()
 		$Sprite.visible = false
+		if !$fx_muerte.playing:
+			$fx_muerte.play()
 
 func eliminar_enemigo():
 	self.queue_free()
-
-
