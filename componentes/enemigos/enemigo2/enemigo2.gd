@@ -21,7 +21,8 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	path.set_offset(path.get_offset() + 100 * delta)
+	if path is PathFollow2D:
+		path.set_offset(path.get_offset() + 100 * delta)
 	if (provocado && esta_vivo):
 		pass
 
@@ -44,10 +45,14 @@ func _colisioned_body(body):
 func _disparar():
 	# Lanzamos disparos
 	var balas_container = Global.balas
-	var bala = bala_enemigo.instance()
-	balas_container.add_child(bala)
-	bala.position = $boca.global_position
-	bala.apply_impulse(Vector2(), Vector2(velocidad_bala, 0).rotated(deg2rad(90)))
+	var bala1 = bala_enemigo.instance()
+	var bala2 = bala_enemigo.instance()
+	balas_container.add_child(bala1)
+	balas_container.add_child(bala2)
+	bala1.position = $boca1.global_position
+	bala2.position = $boca2.global_position
+	bala1.apply_impulse(Vector2(), Vector2(velocidad_bala, 0).rotated(deg2rad(90)))
+	bala2.apply_impulse(Vector2(), Vector2(velocidad_bala, 0).rotated(deg2rad(90)))
 
 func morir():
 	$Sprite.visible = false

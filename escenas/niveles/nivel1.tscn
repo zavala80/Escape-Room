@@ -32,13 +32,13 @@ script = ExtResource( 4 )
 [node name="enemigos" type="Node2D" parent="."]
 
 [node name="enemigo1" type="Node2D" parent="enemigos"]
-position = Vector2( 278, -545 )
+position = Vector2( -1868, -327 )
 
 [node name="enemigo1" parent="enemigos/enemigo1" instance=ExtResource( 3 )]
 position = Vector2( -11, 3316 )
 
 [node name="enemigo2" type="Node2D" parent="enemigos"]
-position = Vector2( 2658, -1162 )
+position = Vector2( 203, -86 )
 
 [node name="Path2D" type="Path2D" parent="enemigos/enemigo2"]
 position = Vector2( 51, 0 )
@@ -69,7 +69,7 @@ position = Vector2( -298.541, 151.121 )
 rotation = 0.330706
 
 [node name="enemigo4" type="Node2D" parent="enemigos"]
-position = Vector2( -1658, -1394 )
+position = Vector2( -1841, -281 )
 
 [node name="enemigo6" parent="enemigos/enemigo4" instance=ExtResource( 5 )]
 position = Vector2( 754, 3112 )

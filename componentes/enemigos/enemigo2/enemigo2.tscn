@@ -20,13 +20,17 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
+rotation = 3.14159
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="boca" type="Position2D" parent="."]
-position = Vector2( 0, 17 )
+[node name="boca1" type="Position2D" parent="."]
+position = Vector2( -17, 0 )
+
+[node name="boca2" type="Position2D" parent="."]
+position = Vector2( 17, 0 )
 
 [node name="enemigo_collider" type="Area2D" parent="."]
 collision_layer = 2
