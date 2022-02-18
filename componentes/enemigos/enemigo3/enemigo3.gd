@@ -22,9 +22,8 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	if path is PathFollow2D:
-		path.set_offset(path.get_offset() + 100 * delta)
 	if (provocado && esta_vivo):
+		gravity_scale = 3.4
 		applied_force = Vector2(Global.player.global_position.x - self.position.x, -100)
 
 func _dentro_del_area(body):

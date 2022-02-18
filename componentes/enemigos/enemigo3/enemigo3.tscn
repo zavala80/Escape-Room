@@ -9,12 +9,12 @@ radius = 23.0
 height = 0.0
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 1025.05
+radius = 599.144
 
 [node name="enemigo3" type="RigidBody2D" groups=["enemigo"]]
 collision_layer = 2
 collision_mask = 4
-gravity_scale = 0.3
+gravity_scale = 0.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true

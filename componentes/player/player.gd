@@ -17,12 +17,15 @@ func _ready():
 	# Le decimos al script global quienes somos
 	Global.player = self
 	
+	$Area2D.connect("area_entered", self, "_on_area_entered")
+	
 	# Posicionamos al jugador al centro al inicio de la partida
 	self.global_position.x = Global.viewport_size().x / 2
 	
 	# Obtenemos la UI de los corazones y su medida individual
-	corazones_ui = Global.UI.get_node("Corazones")
-	size_x_corazon = corazones_ui.rect_size.x
+	if Global.UI:
+		corazones_ui = Global.UI.get_node("Corazones")
+		size_x_corazon = corazones_ui.rect_size.x
 	
 	# Actualizamos la UI
 	actualizar_ui()
@@ -115,3 +118,13 @@ func morir():
 
 func reiniciar_nivel():
 	get_tree().reload_current_scene()
+
+func _on_area_entered(area):
+	if area.get_parent().is_in_group("corazon"):
+		# Eliminamos el corazón y le incrementamos la cantidad de vidas al jugador
+		area.get_parent().queue_free()
+		incrementar_vidas(1)
+
+func incrementar_vidas(numeroVidas):
+	vidas += numeroVidas
+	actualizar_ui() # Actualizamos el HUD de los corazones de la UI
