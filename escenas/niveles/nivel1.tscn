@@ -1,13 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://componentes/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://componentes/fondos/espacio/fondo_espacio.tscn" type="PackedScene" id=2]
-[ext_resource path="res://componentes/enemigos/enemigo3/enemigo3.tscn" type="PackedScene" id=3]
+[ext_resource path="res://componentes/enemigos/enemigo1/enemigo1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/balas.gd" type="Script" id=4]
+[ext_resource path="res://scripts/Nivel.gd" type="Script" id=5]
 [ext_resource path="res://componentes/ui/UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://musica/nivel1.wav" type="AudioStream" id=7]
+[ext_resource path="res://componentes/enemigos/enemigo2/enemigo2.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 79, 8620, 0, 0, 0, 0, 691, 8682, 0, 0, 0, 0, 76, 8725, 0, 0, 0, 0, 691, 8780, 0, 0, 0, 0, 80, 8842, 0, 0, 0, 0, 685, 8901, 0, 0, 0, 0, 87, 8958, 0, 0, 0, 0, 687, 9012, 0, 0, 0, 0, 96, 9077, 0, 0, 0, 0, 684, 9128, 0, 0, 0, 0, 103, 9200, 0, 0, 0, 0, 675, 9258 )
+}
 
 [node name="Nivel" type="Node"]
+script = ExtResource( 5 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_right = 247.0
@@ -24,26 +32,106 @@ script = ExtResource( 4 )
 
 [node name="enemigos" type="Node2D" parent="."]
 
-[node name="enemigo3" parent="enemigos" instance=ExtResource( 3 )]
-position = Vector2( 15, 2861 )
-gravity_scale = 0.8
+[node name="enemigos_1" type="Node2D" parent="enemigos"]
+position = Vector2( 2338, -756 )
 
-[node name="enemigo4" parent="enemigos" instance=ExtResource( 3 )]
-position = Vector2( 486, 2942 )
-gravity_scale = 0.8
+[node name="enemigo1" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 98, 10512 )
 
-[node name="enemigo5" parent="enemigos" instance=ExtResource( 3 )]
-position = Vector2( 439, 2505 )
-gravity_scale = 0.8
+[node name="enemigo2" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 236, 10419 )
 
-[node name="enemigo6" parent="enemigos" instance=ExtResource( 3 )]
-position = Vector2( 816, 1974 )
-gravity_scale = 0.8
+[node name="enemigo3" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 378, 10483 )
+
+[node name="enemigo4" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 322, 10315 )
+
+[node name="enemigo5" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 468, 10321 )
+
+[node name="enemigo6" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 560, 10467 )
+
+[node name="enemigo7" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 630, 10397 )
+
+[node name="enemigo8" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 728, 10321 )
+
+[node name="enemigo9" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 800, 10461 )
+
+[node name="enemigo10" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 716, 10537 )
+
+[node name="enemigo11" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 956, 10549 )
+
+[node name="enemigo12" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 910, 10391 )
+
+[node name="enemigo13" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 834, 10221 )
+
+[node name="enemigo14" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 594, 10211 )
+
+[node name="enemigo15" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 394, 10195 )
+
+[node name="enemigo16" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 206, 10183 )
+
+[node name="enemigo17" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 176, 10309 )
+
+[node name="enemigo18" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 58, 10419 )
+
+[node name="enemigo19" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 56, 10263 )
+
+[node name="enemigos_2" type="Node2D" parent="enemigos"]
+position = Vector2( 1, -3256 )
+
+[node name="Path2D" type="Path2D" parent="enemigos/enemigos_2"]
+position = Vector2( -4, 52 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="enemigos/enemigos_2/Path2D"]
+position = Vector2( 79, 8620 )
+rotation = 0.229504
+rotate = false
+
+[node name="enemigo2" parent="enemigos/enemigos_2/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( -2.99927, -166.688 )
+rotation = -0.229504
+
+[node name="enemigo3" parent="enemigos/enemigos_2/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( 57.001, -166.688 )
+rotation = -0.229504
+
+[node name="enemigo4" parent="enemigos/enemigos_2/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( 117.001, -166.688 )
+rotation = -0.229504
+
+[node name="enemigo5" parent="enemigos/enemigos_2/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( 177.001, -166.688 )
+rotation = -0.229504
+
+[node name="enemigo6" parent="enemigos/enemigos_2/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( 237.001, -166.688 )
+rotation = -0.229504
+
+[node name="enemigo7" parent="enemigos/enemigos_2/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( 297.001, -166.688 )
+rotation = -0.229504
 
 [node name="UI" parent="." instance=ExtResource( 6 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 414, 3725 )
+position = Vector2( 461, 12157 )
 
 [node name="musica" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )

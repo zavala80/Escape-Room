@@ -10,7 +10,7 @@ margin_left = 54.0
 margin_top = 105.0
 margin_right = 280.0
 margin_bottom = 185.0
-escena_a_cambiar = "res://escenas/niveles/nivel1.tscn"
+escena_a_cambiar = "res://escenas/SeleccionDeNiveles/SeleccionDeNiveles.tscn"
 
 [node name="btn_salir" parent="." instance=ExtResource( 2 )]
 margin_left = 50.0

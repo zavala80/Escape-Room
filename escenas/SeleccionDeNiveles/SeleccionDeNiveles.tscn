@@ -9,6 +9,7 @@ script = ExtResource( 1 )
 
 [node name="BotonNivel" parent="." instance=ExtResource( 2 )]
 int_nivel = 1
+redirigir_escena = "res://escenas/niveles/nivel1.tscn"
 
 [node name="BotonNivel2" parent="." instance=ExtResource( 2 )]
 margin_left = 215.0

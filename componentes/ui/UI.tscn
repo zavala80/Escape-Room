@@ -1,9 +1,49 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://img/UI/corazon.png" type="Texture" id=1]
 [ext_resource path="res://componentes/ui/UI.gd" type="Script" id=2]
+[ext_resource path="res://fuentes/Jamma 8x8 Monospaced.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 43
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "mostrar_y_desaparecer"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
 
 [node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
@@ -29,18 +69,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -83.5
-margin_top = -20.0
-margin_right = 83.5
-margin_bottom = 20.0
+margin_left = -151.5
+margin_top = -22.0
+margin_right = 151.5
+margin_bottom = 22.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer"]
-margin_top = 12.0
-margin_right = 167.0
-margin_bottom = 27.0
+margin_right = 303.0
+margin_bottom = 44.0
+theme = SubResource( 2 )
 text = "¡Vamos!"
 fit_content_height = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/VBoxContainer/RichTextLabel"]
+anims/RESET = SubResource( 3 )
+anims/mostrar_y_desaparecer = SubResource( 4 )

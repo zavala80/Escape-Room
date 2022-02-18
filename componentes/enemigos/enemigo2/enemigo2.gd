@@ -9,7 +9,7 @@ var tiempoDeEnfriamientoDeDisparo = 1.0
 var angulo = 90
 var anguloDisparo = 90
 var esta_vivo = true
-onready var path = get_parent().get_parent()
+onready var path = get_parent()
 
 func _ready():
 	$area_provocadora.connect("body_entered", self, "_dentro_del_area")
@@ -22,7 +22,7 @@ func _ready():
 
 func _process(delta):
 	if path is PathFollow2D:
-		path.set_offset(path.get_offset() + 100 * delta)
+		path.set_offset(path.get_offset() + 50 * delta)
 	if (provocado && esta_vivo):
 		pass
 

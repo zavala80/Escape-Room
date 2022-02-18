@@ -38,7 +38,6 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="area_provocadora" type="Area2D" parent="."]
-visible = false
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
