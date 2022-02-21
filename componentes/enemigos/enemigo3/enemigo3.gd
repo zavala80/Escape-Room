@@ -22,7 +22,6 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	print(self.global_position.x)
 	if (provocado && esta_vivo):
 		gravity_scale = 3.4
 		applied_force = Vector2(Global.player.global_position.x - self.position.x, -100)

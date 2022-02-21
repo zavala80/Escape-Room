@@ -28,6 +28,7 @@ margin_right = 581.0
 margin_bottom = 146.0
 text = "Jefe final"
 int_nivel = 3
+redirigir_escena = "res://escenas/niveles/jefe_final.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

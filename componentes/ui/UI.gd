@@ -11,6 +11,10 @@ func _ready():
 	var animacion = texto_inicial.get_node("AnimationPlayer")
 	animacion.connect("animation_finished", self, "_animacion_terminada")
 	animacion.play("mostrar_y_desaparecer")
+	
+	var nivel_actual = self.get_parent().get_parent()
+	if !nivel_actual.pelea_jefe:
+		$Vida_jefe.visible = false
 
 func _animacion_terminada(animacion):
 	if animacion == "mostrar_y_desaparecer":

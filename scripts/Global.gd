@@ -1,7 +1,10 @@
 extends Node
 
+var nivel
 var UI
 var player
+var jefe_final
+var enemigos
 var balas
 var ruta_archivo = "user://datos_guardados.txt"
 var config_inicial = {
@@ -13,6 +16,7 @@ var musica = AudioStreamPlayer.new()
 var canciones = {
 	"nivel_1": "res://musica/nivel1.wav",
 	"nivel_2": "res://musica/nivel2.wav",
+	"nivel_3": "res://musica/jefe_final.wav",
 }
 var tween_cancion = Tween.new()
 
@@ -23,6 +27,7 @@ func _ready():
 	
 	self.add_child(musica)
 	self.add_child(tween_cancion)
+	
 	cargar_datos()
 
 func viewport_size():
@@ -55,6 +60,8 @@ func reproducir_musica(nivel_int):
 			musica.set_stream(load(canciones.nivel_1))
 		if nivel_int == 2:
 			musica.set_stream(load(canciones.nivel_2))
+		if nivel_int == 3:
+			musica.set_stream(load(canciones.nivel_3))
 		musica.play()
 
 func toggle_musica(status):
@@ -64,6 +71,12 @@ func toggle_musica(status):
 		musica.stop()
 
 func termino_el_juego():
+	# Eliminamos las balas y los enemigos que quedaron flotando
+	if Global.balas:
+		Global.balas.queue_free()
+	if Global.enemigos:
+		Global.enemigos.queue_free()
+	
 	# Slienciamos poco a poco la música de fondo
 	tween_cancion.interpolate_property(musica, "volume_db", musica.get_volume_db(), -80, 2.0, Tween.TRANS_SINE, Tween.EASE_OUT)
 	tween_cancion.connect("tween_all_completed", self, "_cancion_de_salida")
@@ -88,7 +101,6 @@ func _presalida_del_nivel():
 	# Escribimos en el archivo de datos del juego
 	var siguiente_nivel = player.get_parent().sig_nivel_int
 	if (cargar_datos().nivel_actual < siguiente_nivel):
-		print("a guardar datos")
 		var nuevos_datos = {
 			"nivel_actual": siguiente_nivel
 		}

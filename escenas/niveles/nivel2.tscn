@@ -27,21 +27,10 @@ script = ExtResource( 5 )
 nivel_int = 2
 sig_nivel_int = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_right = 247.0
-margin_bottom = 71.0
-text = "Nievel 1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="fondo" parent="." instance=ExtResource( 2 )]
 
 [node name="balas" type="Node2D" parent="."]
 script = ExtResource( 4 )
-
-[node name="enemigos_antiguos" type="Node2D" parent="."]
-position = Vector2( -2961, -144 )
 
 [node name="enemigos" type="Node2D" parent="."]
 
@@ -305,6 +294,7 @@ position = Vector2( 482, 5706 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 461, 12157 )
+vidas = 5
 
 [node name="Meta" parent="." instance=ExtResource( 11 )]
 position = Vector2( 0, 3600 )

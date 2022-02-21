@@ -7,7 +7,8 @@ var bala_personaje = preload("res://componentes/player/bala_personaje/bala_perso
 var particulas_muerte = preload("res://componentes/muertes/particula_personaje_muerte.tscn")
 var esta_vivo = true
 var inmortal = false
-var vidas = 5
+export (int) var vidas
+export (bool) var pelea_jefe
 var termino_el_juego = false
 var GRAVEDAD = 200
 var corazones_ui
@@ -32,6 +33,11 @@ func _ready():
 	
 	# Conectamos la señal de nuestro animation player
 	$AnimationPlayer.connect("animation_finished", self, "_termino_animacion")
+	
+	if pelea_jefe:
+		$Camera2D.limit_top = 0
+		$Camera2D.limit_bottom = Global.viewport_size().y
+		$Camera2D.offset = Vector2(0, 0)
 	
 	# Habilitamos la ejecución de código por fotograma
 	set_process(true)
@@ -59,14 +65,21 @@ func administrar_inputs():
 		|| Input.is_action_pressed("ui_d"))
 		- int(Input.is_action_pressed("ui_left")
 		|| Input.is_action_pressed("ui_a"))) * VELOCIDAD
-#	motion.y = (int(Input.is_action_pressed("ui_down") || Input.is_action_pressed("ui_s")) - int(Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_w"))) * VELOCIDAD
-	motion.y = -GRAVEDAD
+	if pelea_jefe:
+		motion.y = (int(Input.is_action_pressed("ui_down") || Input.is_action_pressed("ui_s")) - int(Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_w"))) * VELOCIDAD
+	else:
+		motion.y = -GRAVEDAD
 	
 	# Limitamos el espacio donde se puede mover el personaje
 	if self.position.x < 0:
 		self.position.x = 0
 	elif self.position.x > 1024:
 		self.position.x = 1024
+	if pelea_jefe:
+		if self.position.y < 0:
+			self.position.y = 0
+		elif self.position.y > Global.viewport_size().y:
+			self.position.y = Global.viewport_size().y
 	
 	# Disparar
 	if Input.is_action_just_pressed("ui_z"):

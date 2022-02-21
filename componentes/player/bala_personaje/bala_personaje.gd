@@ -16,6 +16,9 @@ func _area_entered(area):
 	if area.get_parent().is_in_group("enemigo"):
 		area.get_parent().morir()
 		self.queue_free()
+	if area.get_parent().is_in_group("jefe_final"):
+		area.get_parent().lastimar()
+		self.queue_free()
 
 func _autodestruir_bala():
 	self.queue_free()
