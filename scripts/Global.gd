@@ -10,6 +10,10 @@ var config_inicial = {
 var datos
 
 var musica = AudioStreamPlayer.new()
+var canciones = {
+	"nivel_1": "res://musica/nivel1.wav",
+	"nivel_2": "res://musica/nivel2.wav",
+}
 var tween_cancion = Tween.new()
 
 func _ready():
@@ -48,7 +52,9 @@ func reproducir_musica(nivel_int):
 	# Si no hay música reproduciendose, que automáticamente inicie la canción
 	if !musica.is_playing():
 		if nivel_int == 1:
-			musica.set_stream(load("res://musica/nivel1.wav"))
+			musica.set_stream(load(canciones.nivel_1))
+		if nivel_int == 2:
+			musica.set_stream(load(canciones.nivel_2))
 		musica.play()
 
 func toggle_musica(status):

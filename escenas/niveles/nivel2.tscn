@@ -1,0 +1,310 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://componentes/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://componentes/fondos/espacio/fondo_espacio.tscn" type="PackedScene" id=2]
+[ext_resource path="res://componentes/enemigos/enemigo1/enemigo1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/balas.gd" type="Script" id=4]
+[ext_resource path="res://scripts/Nivel.gd" type="Script" id=5]
+[ext_resource path="res://componentes/ui/UI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://componentes/enemigos/enemigo4/enemigo4.tscn" type="PackedScene" id=7]
+[ext_resource path="res://componentes/enemigos/enemigo2/enemigo2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://componentes/enemigos/enemigo3/enemigo3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://componentes/items/Corazon_item.tscn" type="PackedScene" id=10]
+[ext_resource path="res://componentes/items_nivel/Meta.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 79, 8620, 0, 0, 0, 0, 691, 8682, 0, 0, 0, 0, 76, 8725, 0, 0, 0, 0, 691, 8780, 0, 0, 0, 0, 80, 8842, 0, 0, 0, 0, 685, 8901, 0, 0, 0, 0, 87, 8958, 0, 0, 0, 0, 687, 9012, 0, 0, 0, 0, 96, 9077, 0, 0, 0, 0, 684, 9128, 0, 0, 0, 0, 103, 9200, 0, 0, 0, 0, 675, 9258 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 708, 8535, 0, 0, 0, 0, 213, 8623, 0, 0, 0, 0, 713, 8649, 0, 0, 0, 0, 232, 8727, 0, 0, 0, 0, 710, 8763, 0, 0, 0, 0, 225, 8813, 0, 0, 0, 0, 734, 8879, 0, 0, 0, 0, 228, 8927, 0, 0, 0, 0, 734, 8991, 0, 0, 0, 0, 225, 9032, 0, 0, 0, 0, 725, 9158 )
+}
+
+[node name="Nivel" type="Node"]
+script = ExtResource( 5 )
+nivel_int = 2
+sig_nivel_int = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_right = 247.0
+margin_bottom = 71.0
+text = "Nievel 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fondo" parent="." instance=ExtResource( 2 )]
+
+[node name="balas" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="enemigos_antiguos" type="Node2D" parent="."]
+position = Vector2( -2961, -144 )
+
+[node name="enemigos" type="Node2D" parent="."]
+
+[node name="enemigos_1" type="Node2D" parent="enemigos"]
+position = Vector2( 0, -1763 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="enemigo1" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 738, 11964 )
+
+[node name="enemigo2" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 300, 12488 )
+
+[node name="enemigo3" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 990, 13330 )
+
+[node name="enemigo4" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 451, 11359 )
+
+[node name="enemigo5" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 417, 8352 )
+
+[node name="enemigo6" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 610, 8254 )
+
+[node name="enemigo7" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 859, 8118 )
+
+[node name="enemigo8" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 290, 5734 )
+
+[node name="enemigo9" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 512, 5643 )
+
+[node name="enemigo10" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 187, 5934 )
+
+[node name="enemigo11" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 134, 5646 )
+
+[node name="enemigo12" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 371, 13053 )
+
+[node name="enemigo13" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 512, 12982 )
+
+[node name="enemigo14" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 680, 12874 )
+
+[node name="enemigo15" parent="enemigos/enemigos_1" instance=ExtResource( 3 )]
+position = Vector2( 442, 12198 )
+
+[node name="enemigos_2" type="Node2D" parent="enemigos"]
+position = Vector2( -100, -14 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Path2D" type="Path2D" parent="enemigos/enemigos_2"]
+position = Vector2( 144, 296 )
+curve = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="enemigos/enemigos_2/Path2D"]
+position = Vector2( 79, 8620 )
+rotation = 0.229504
+rotate = false
+
+[node name="enemigo2" parent="enemigos/enemigos_2/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( -1.42883, -1.7207 )
+rotation = -0.229504
+
+[node name="enemigo3" parent="enemigos/enemigos_2/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( 58.5717, -1.71973 )
+rotation = -0.229504
+
+[node name="enemigo4" parent="enemigos/enemigos_2/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( 118.571, -1.7207 )
+rotation = -0.229504
+
+[node name="enemigo5" parent="enemigos/enemigos_2/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( 178.571, -1.71973 )
+rotation = -0.229504
+
+[node name="Path2D2" type="Path2D" parent="enemigos/enemigos_2"]
+position = Vector2( 259, -1810 )
+curve = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="enemigos/enemigos_2/Path2D2"]
+position = Vector2( 708, 8535 )
+rotation = 0.229504
+rotate = false
+
+[node name="enemigo2" parent="enemigos/enemigos_2/Path2D2/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( -7.5354, -14.6714 )
+rotation = -0.229504
+
+[node name="enemigo3" parent="enemigos/enemigos_2/Path2D2/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( -57.535, 10.329 )
+rotation = -0.229504
+
+[node name="enemigo4" parent="enemigos/enemigos_2/Path2D2/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( -107.535, 35.329 )
+rotation = -0.229504
+
+[node name="enemigo5" parent="enemigos/enemigos_2/Path2D2/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( -157.535, 60.329 )
+rotation = -0.229504
+
+[node name="Path2D3" type="Path2D" parent="enemigos/enemigos_2"]
+position = Vector2( 114, -2287 )
+curve = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="enemigos/enemigos_2/Path2D3"]
+position = Vector2( 79, 8620 )
+rotation = 0.229504
+rotate = false
+
+[node name="enemigo2" parent="enemigos/enemigos_2/Path2D3/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( -1.42883, -1.7207 )
+rotation = -0.229504
+
+[node name="enemigo3" parent="enemigos/enemigos_2/Path2D3/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( 58.5717, -1.71973 )
+rotation = -0.229504
+
+[node name="enemigo4" parent="enemigos/enemigos_2/Path2D3/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( 118.571, -1.7207 )
+rotation = -0.229504
+
+[node name="enemigo5" parent="enemigos/enemigos_2/Path2D3/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( 178.571, -1.71973 )
+rotation = -0.229504
+
+[node name="Path2D4" type="Path2D" parent="enemigos/enemigos_2"]
+position = Vector2( 224, -4703 )
+curve = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="enemigos/enemigos_2/Path2D4"]
+position = Vector2( 708, 8535 )
+rotation = 0.229504
+rotate = false
+
+[node name="enemigo2" parent="enemigos/enemigos_2/Path2D4/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( -7.5354, -14.6714 )
+rotation = -0.229504
+
+[node name="enemigo3" parent="enemigos/enemigos_2/Path2D4/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( -57.535, 10.329 )
+rotation = -0.229504
+
+[node name="enemigo4" parent="enemigos/enemigos_2/Path2D4/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( -107.535, 35.329 )
+rotation = -0.229504
+
+[node name="enemigo5" parent="enemigos/enemigos_2/Path2D4/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( -157.535, 60.329 )
+rotation = -0.229504
+
+[node name="enemigos_3" type="Node2D" parent="enemigos"]
+position = Vector2( 23, -220 )
+
+[node name="enemigo3" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 452, 8359 )
+
+[node name="enemigo4" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 220, 7245 )
+
+[node name="enemigo5" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 661, 6561 )
+
+[node name="enemigo6" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 225, 6346 )
+
+[node name="enemigo7" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 706, 6097 )
+
+[node name="enemigo8" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 468, 5712 )
+
+[node name="enemigo9" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 796, 5508 )
+
+[node name="enemigo10" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 83, 5519 )
+
+[node name="enemigo11" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 792, 7638 )
+
+[node name="enemigo12" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 280, 7755 )
+
+[node name="enemigos_4" type="Node2D" parent="enemigos"]
+position = Vector2( 500, 11436 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="enemigo4" parent="enemigos/enemigos_4" instance=ExtResource( 7 )]
+position = Vector2( -400, 10 )
+
+[node name="enemigo5" parent="enemigos/enemigos_4" instance=ExtResource( 7 )]
+position = Vector2( 413, -247 )
+
+[node name="enemigo6" parent="enemigos/enemigos_4" instance=ExtResource( 7 )]
+position = Vector2( -171, -571 )
+
+[node name="enemigo7" parent="enemigos/enemigos_4" instance=ExtResource( 7 )]
+position = Vector2( 353, -822 )
+
+[node name="enemigo8" parent="enemigos/enemigos_4" instance=ExtResource( 7 )]
+position = Vector2( -431, -1365 )
+
+[node name="enemigo9" parent="enemigos/enemigos_4" instance=ExtResource( 7 )]
+position = Vector2( 354, -1464 )
+
+[node name="enemigo10" parent="enemigos/enemigos_4" instance=ExtResource( 7 )]
+position = Vector2( 272, -2787 )
+
+[node name="enemigo11" parent="enemigos/enemigos_4" instance=ExtResource( 7 )]
+position = Vector2( -376, -3307 )
+
+[node name="enemigo12" parent="enemigos/enemigos_4" instance=ExtResource( 7 )]
+position = Vector2( -258, -6995 )
+
+[node name="enemigo13" parent="enemigos/enemigos_4" instance=ExtResource( 7 )]
+position = Vector2( 304, -6992 )
+
+[node name="enemigo14" parent="enemigos/enemigos_4" instance=ExtResource( 7 )]
+position = Vector2( -284, -6651 )
+
+[node name="enemigo15" parent="enemigos/enemigos_4" instance=ExtResource( 7 )]
+position = Vector2( 134, -6543 )
+
+[node name="items" type="Node2D" parent="."]
+
+[node name="Corazon_item" parent="items" instance=ExtResource( 10 )]
+position = Vector2( 490, 10342 )
+
+[node name="Corazon_item2" parent="items" instance=ExtResource( 10 )]
+position = Vector2( 682, 9175 )
+
+[node name="Corazon_item3" parent="items" instance=ExtResource( 10 )]
+position = Vector2( 482, 5706 )
+
+[node name="UI" parent="." instance=ExtResource( 6 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 461, 12157 )
+
+[node name="Meta" parent="." instance=ExtResource( 11 )]
+position = Vector2( 0, 3600 )
