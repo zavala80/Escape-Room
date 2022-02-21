@@ -24,7 +24,9 @@ _data = {
 
 [node name="Nivel" type="Node"]
 script = ExtResource( 5 )
+pausa_inicial = true
 nivel_int = 1
+nivel_nombre = "nivel_1"
 sig_nivel_int = 2
 
 [node name="fondo" parent="." instance=ExtResource( 2 )]

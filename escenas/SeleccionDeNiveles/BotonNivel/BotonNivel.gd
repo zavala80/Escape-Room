@@ -9,6 +9,7 @@ func _ready():
 		self.disabled = false
 	else:
 		self.disabled = true
+		self.modulate.a = 0.7
 
 func _cambiar_escena():
 	if (redirigir_escena && !self.disabled):

@@ -51,7 +51,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_provocadora"]
 shape = SubResource( 1 )
 
-[node name="balas" type="Node" parent="."]
+[node name="balas" type="Node2D" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
 

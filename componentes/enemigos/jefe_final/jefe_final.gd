@@ -9,7 +9,7 @@ var tiempoDeEnfriamientoDeDisparo = 0.25
 var angulo = 90
 var anguloDisparo = 90
 var esta_vivo = true
-var vidas = 1
+var vidas = 60
 var vida_ui
 var size_x_vidas
 onready var path = get_parent()

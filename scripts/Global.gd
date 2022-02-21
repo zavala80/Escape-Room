@@ -14,6 +14,7 @@ var datos
 
 var musica = AudioStreamPlayer.new()
 var canciones = {
+	"menu": "res://musica/menu.wav",
 	"nivel_1": "res://musica/nivel1.wav",
 	"nivel_2": "res://musica/nivel2.wav",
 	"nivel_3": "res://musica/jefe_final.wav",
@@ -53,16 +54,25 @@ func guardar_partida(datos_a_guardar):
 	datos = datos_a_guardar
 	return datos_a_guardar
 
-func reproducir_musica(nivel_int):
-	# Si no hay música reproduciendose, que automáticamente inicie la canción
-	if !musica.is_playing():
-		if nivel_int == 1:
+func reproducir_musica(nivel_nombre):
+	if musica:
+		if nivel_nombre == "menu":
+			if musica.stream:
+				print(musica.stream.resource_path)
+				if musica.stream.resource_path != canciones.menu:
+					musica.set_stream(load(canciones.menu))
+			else:
+				musica.set_stream(load(canciones.menu))
+		if nivel_nombre == "nivel_1":
 			musica.set_stream(load(canciones.nivel_1))
-		if nivel_int == 2:
+		if nivel_nombre == "nivel_2":
 			musica.set_stream(load(canciones.nivel_2))
-		if nivel_int == 3:
+		if nivel_nombre == "jefe_final":
 			musica.set_stream(load(canciones.nivel_3))
-		musica.play()
+		
+		# Si no hay música reproduciendose, que automáticamente inicie la canción
+		if !musica.is_playing():
+			musica.play()
 
 func toggle_musica(status):
 	if status:
@@ -73,9 +83,13 @@ func toggle_musica(status):
 func termino_el_juego():
 	# Eliminamos las balas y los enemigos que quedaron flotando
 	if Global.balas:
-		Global.balas.queue_free()
+		var balas_container = Global.balas
+		if balas_container.get_child_count() > 0:
+			balas_container.queue_free()
 	if Global.enemigos:
-		Global.enemigos.queue_free()
+		var enemigos_container = Global.enemigos
+		if enemigos_container.get_child_count() > 0:
+			enemigos_container.queue_free()
 	
 	# Slienciamos poco a poco la música de fondo
 	tween_cancion.interpolate_property(musica, "volume_db", musica.get_volume_db(), -80, 2.0, Tween.TRANS_SINE, Tween.EASE_OUT)
