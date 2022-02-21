@@ -124,7 +124,28 @@ func _on_area_entered(area):
 		# Eliminamos el corazón y le incrementamos la cantidad de vidas al jugador
 		area.get_parent().queue_free()
 		incrementar_vidas(1)
+	
+	if area.is_in_group("meta"):
+		termino_el_juego()
 
 func incrementar_vidas(numeroVidas):
+	$fx_corazon.play()
 	vidas += numeroVidas
 	actualizar_ui() # Actualizamos el HUD de los corazones de la UI
+
+func termino_el_juego():
+	Global.termino_el_juego()
+
+func _presalida_del_nivel():
+	# Salimos de la pausa
+	get_tree().paused = false
+	
+	# Creamos un timer para salir del nivel
+	var timer = Timer.new()
+	self.add_child(timer)
+	timer.connect("timeout", self, "_salir_del_nivel")
+	timer.set_wait_time(1)
+	timer.start()
+
+func _salir_del_nivel():
+	return get_tree().change_scene("res://escenas/SeleccionDeNiveles/SeleccionDeNiveles.tscn")

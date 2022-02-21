@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/corazon.ogg-bb9038174f87d4853b0c9f7ad912849c.oggstr"
+
+[deps]
+
+source_file="res://fx/jugador/corazon.ogg"
+dest_files=[ "res://.import/corazon.ogg-bb9038174f87d4853b0c9f7ad912849c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

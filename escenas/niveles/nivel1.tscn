@@ -6,10 +6,10 @@
 [ext_resource path="res://scripts/balas.gd" type="Script" id=4]
 [ext_resource path="res://scripts/Nivel.gd" type="Script" id=5]
 [ext_resource path="res://componentes/ui/UI.tscn" type="PackedScene" id=6]
-[ext_resource path="res://musica/nivel1.wav" type="AudioStream" id=7]
 [ext_resource path="res://componentes/enemigos/enemigo2/enemigo2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://componentes/enemigos/enemigo3/enemigo3.tscn" type="PackedScene" id=9]
 [ext_resource path="res://componentes/items/Corazon_item.tscn" type="PackedScene" id=10]
+[ext_resource path="res://componentes/items_nivel/Meta.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -23,6 +23,8 @@ _data = {
 
 [node name="Nivel" type="Node"]
 script = ExtResource( 5 )
+nivel_int = 1
+sig_nivel_int = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_right = 247.0
@@ -421,16 +423,42 @@ position = Vector2( 913, 6770 )
 [node name="enemigo11" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
 position = Vector2( 589, 5935 )
 
+[node name="enemigo12" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 279, 6177 )
+
+[node name="enemigo13" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 845, 6298 )
+
+[node name="enemigo14" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 149, 5660 )
+
+[node name="enemigo15" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 805, 5359 )
+
+[node name="enemigo16" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 320, 5242 )
+
+[node name="enemigo17" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 154, 4950 )
+
+[node name="enemigo18" parent="enemigos/enemigos_3" instance=ExtResource( 9 )]
+position = Vector2( 792, 4636 )
+
 [node name="items" type="Node2D" parent="."]
 
 [node name="Corazon_item" parent="items" instance=ExtResource( 10 )]
-position = Vector2( 463, 11978 )
+position = Vector2( 490, 10342 )
+
+[node name="Corazon_item2" parent="items" instance=ExtResource( 10 )]
+position = Vector2( 682, 9175 )
+
+[node name="Corazon_item3" parent="items" instance=ExtResource( 10 )]
+position = Vector2( 482, 5706 )
 
 [node name="UI" parent="." instance=ExtResource( 6 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 461, 12157 )
 
-[node name="musica" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-autoplay = true
+[node name="Meta" parent="." instance=ExtResource( 11 )]
+position = Vector2( 0, 4000 )
