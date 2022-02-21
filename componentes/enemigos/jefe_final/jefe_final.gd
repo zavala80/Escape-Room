@@ -5,13 +5,14 @@ var bala_enemigo = preload("res://componentes/enemigos/bala_enemigo.tscn")
 var particulas_explosion = preload("res://componentes/muertes/particula_personaje_muerte.tscn")
 var velocidad_bala = 400
 onready var timer = get_node("Timer")
-var tiempoDeEnfriamientoDeDisparo = 1.5
+var tiempoDeEnfriamientoDeDisparo = 0.25
 var angulo = 90
 var anguloDisparo = 90
 var esta_vivo = true
-var vidas = 15
+var vidas = 1
 var vida_ui
 var size_x_vidas
+onready var path = get_parent()
 
 func _ready():
 	Global.jefe_final = self
@@ -34,7 +35,8 @@ func _ready():
 
 func _process(delta):
 	if (provocado && esta_vivo):
-		pass
+		if path is PathFollow2D:
+			path.set_offset(path.get_offset() + 350 * delta)
 
 func _dentro_del_area(body):
 	if body.name == Global.player.name:

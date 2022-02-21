@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://componentes/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://componentes/fondos/espacio/fondo_espacio.tscn" type="PackedScene" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://scripts/Nivel.gd" type="Script" id=5]
 [ext_resource path="res://componentes/ui/UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://componentes/items_nivel/Meta.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 511, 231, 0, 0, 0, 0, 820, 139, 0, 0, 0, 0, 937.5, 278.333, 0, 0, 0, 0, 589, 379, 0, 0, 0, 0, 226, 202, 0, 0, 0, 0, 84, 373, 0, 0, 0, 0, 340, 189, 0, 0, 0, 0, 141, 200, 0, 0, 0, 0, 450, 440, 0, 0, 0, 0, 883.333, 273.333, 0, 0, 0, 0, 925.833, 434.167, 0, 0, 0, 0, 447, 213, 0, 0, 0, 0, 266, 400, 0, 0, 0, 0, 210, 171, 0, 0, 0, 0, 143, 404, 0, 0, 0, 0, 932.5, 247.5, 0, 0, 0, 0, 466, 169, 0, 0, 0, 0, 923, 366, 0, 0, 0, 0, 948, 184, 0, 0, 0, 0, 632, 158, 0, 0, 0, 0, 336, 411, 0, 0, 0, 0, 111, 274, 0, 0, 0, 0, 412, 174, 0, 0, 0, 0, 672, 414, 0, 0, 0, 0, 925.833, 158.333, 0, 0, 0, 0, 300, 151, 0, 0, 0, 0, 126, 219, 0, 0, 0, 0, 218, 419, 0, 0, 0, 0, 453, 155, 0, 0, 0, 0, 933.333, 411.667, 0, 0, 0, 0, 102, 322, 0, 0, 0, 0, 941.667, 222.5, 0, 0, 0, 0, 111, 162, 0, 0, 0, 0, 511, 231 )
+}
 
 [node name="Nivel" type="Node"]
 script = ExtResource( 5 )
@@ -29,5 +34,13 @@ pelea_jefe = true
 [node name="Meta" parent="." instance=ExtResource( 11 )]
 position = Vector2( 0, 3600 )
 
-[node name="jefe_final" parent="." instance=ExtResource( 3 )]
-position = Vector2( 512, 231 )
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( -112, -16 )
+scale = Vector2( 1.2, 1.2 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 511, 231 )
+rotate = false
+
+[node name="jefe_final" parent="Path2D/PathFollow2D" instance=ExtResource( 3 )]

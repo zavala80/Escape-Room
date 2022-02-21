@@ -1,0 +1,253 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://escenas/niveles/Creditos/Creditos.gd" type="Script" id=1]
+[ext_resource path="res://img/UI/cuadrado.png" type="Texture" id=2]
+[ext_resource path="res://fuentes/Jamma 8x8 Monospaced.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://musica/creditos.ogg" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+extra_spacing_bottom = 10
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+extra_spacing_bottom = 10
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+extra_spacing_bottom = 60
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+
+[node name="Creditos" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = 830.0
+margin_right = 1004.0
+margin_bottom = 1652.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+margin_left = 56.0
+margin_right = 968.0
+margin_bottom = 822.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer"]
+margin_right = 912.0
+margin_bottom = 70.0
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/MarginContainer"]
+margin_right = 912.0
+margin_bottom = 70.0
+theme = SubResource( 2 )
+text = "Escape Room"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="Control/CenterContainer/VBoxContainer"]
+margin_top = 74.0
+margin_right = 912.0
+margin_bottom = 114.0
+rect_min_size = Vector2( 0, 40 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+margin_top = 118.0
+margin_right = 912.0
+margin_bottom = 232.0
+
+[node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer/Control"]
+margin_right = 912.0
+margin_bottom = 34.0
+theme = SubResource( 4 )
+text = "Productor y Director"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Control/CenterContainer/VBoxContainer/Control"]
+margin_top = 38.0
+margin_right = 912.0
+margin_bottom = 114.0
+theme = SubResource( 6 )
+text = "Calixto Zavala"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control5" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+margin_top = 236.0
+margin_right = 912.0
+margin_bottom = 350.0
+
+[node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer/Control5"]
+margin_right = 912.0
+margin_bottom = 34.0
+theme = SubResource( 4 )
+text = "Programación"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Control/CenterContainer/VBoxContainer/Control5"]
+margin_top = 38.0
+margin_right = 912.0
+margin_bottom = 114.0
+theme = SubResource( 6 )
+text = "Calixto Zavala"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+margin_top = 354.0
+margin_right = 912.0
+margin_bottom = 468.0
+
+[node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer/Control2"]
+margin_right = 912.0
+margin_bottom = 34.0
+theme = SubResource( 4 )
+text = "Música, SFX y gráficos"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Control/CenterContainer/VBoxContainer/Control2"]
+margin_top = 38.0
+margin_right = 912.0
+margin_bottom = 114.0
+theme = SubResource( 6 )
+text = "Humble Bundle"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control3" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+margin_top = 472.0
+margin_right = 912.0
+margin_bottom = 586.0
+
+[node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer/Control3"]
+margin_right = 912.0
+margin_bottom = 34.0
+theme = SubResource( 4 )
+text = "Brainstorming y desarrollo de sketches"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Control/CenterContainer/VBoxContainer/Control3"]
+margin_top = 38.0
+margin_right = 912.0
+margin_bottom = 114.0
+theme = SubResource( 6 )
+text = "Calixto Zavala"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control4" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+margin_top = 590.0
+margin_right = 912.0
+margin_bottom = 704.0
+
+[node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer/Control4"]
+margin_right = 912.0
+margin_bottom = 34.0
+theme = SubResource( 4 )
+text = "Testing"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Control/CenterContainer/VBoxContainer/Control4"]
+margin_top = 38.0
+margin_right = 912.0
+margin_bottom = 114.0
+theme = SubResource( 6 )
+text = "Calixto Zavala"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control6" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+margin_top = 708.0
+margin_right = 912.0
+margin_bottom = 822.0
+
+[node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer/Control6"]
+margin_right = 912.0
+margin_bottom = 34.0
+theme = SubResource( 4 )
+text = "Gracias especiales"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Control/CenterContainer/VBoxContainer/Control6"]
+margin_top = 38.0
+margin_right = 912.0
+margin_bottom = 114.0
+theme = SubResource( 6 )
+text = "Godot (Engine), Godot Forum"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 0, 0, 0, 1 )
+scale = Vector2( 17, 13 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="musica" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]

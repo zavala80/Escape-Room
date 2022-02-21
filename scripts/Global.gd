@@ -93,7 +93,6 @@ func _cancion_de_salida():
 	# Mostramos el texto que indica que el jugador ha ganado
 	Global.UI.texto_ganador()
 
-
 func _presalida_del_nivel():
 	toggle_musica(false)
 	musica.volume_db = 1.0
@@ -107,4 +106,7 @@ func _presalida_del_nivel():
 		guardar_partida(nuevos_datos)
 	
 	get_tree().paused = false
-	get_tree().change_scene("res://escenas/SeleccionDeNiveles/SeleccionDeNiveles.tscn")
+	if !nivel.pelea_jefe:
+		get_tree().change_scene("res://escenas/SeleccionDeNiveles/SeleccionDeNiveles.tscn")
+	else:
+		get_tree().change_scene("res://escenas/niveles/Creditos/Creditos.tscn")

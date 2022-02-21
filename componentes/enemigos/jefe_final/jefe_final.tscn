@@ -6,11 +6,11 @@
 [ext_resource path="res://fx/enemigos/lastimado.wav" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 16.0
+radius = 61.0
 height = 0.0
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 807.01
+radius = 1934.45
 
 [node name="jefe_final" type="KinematicBody2D" groups=["jefe_final"]]
 collision_layer = 2
